@@ -21,6 +21,8 @@
 本地视频检测画面：
 ![本地](https://github.com/Javacr/PyQt5-YOLOv5/blob/master/imgs/video.gif)
 
+本地图片检测画面：
+![本地](https://github.com/Javacr/PyQt5-YOLOv5/blob/master/imgs/%E5%9B%BE%E7%89%87.png)
 
 ## 要做的事
 
