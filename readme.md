@@ -44,7 +44,7 @@ img0 = cv2.imread(path)	#（位置在212行上下）。
 img0 = cv2.imdecode(np.fromfile(path, dtype=np.uint8), 1)
 ```
 
-**三.** 在*yolov5-master*根目录下创建*main_ui.py、yolo_win.py*和*icon*文件夹（存放图标）。
+**三.** 将*main_ui.py、yolo_win.py*和*icon*文件夹（存放图标）放在*yolov5-master*根目录下。
 
 运行*yolo_win.py*即可开启检测界面。
 
