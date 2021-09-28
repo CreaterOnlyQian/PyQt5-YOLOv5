@@ -3,12 +3,12 @@
 **功能：**
 
 1. 模型选择
-2. 本地文件选择
+2. 本地文件选择(视频图片均可)
 3. 开关摄像头
 4. 运行/终止
 5. 统计检测结果
 
-![新建 Microsoft Visio 绘图](D:\project\deeplearning\project\pytorch\objectdection\yolov5-master\笔记\新建 Microsoft Visio 绘图.jpg)
+![界面](https://github.com/Javacr/PyQt5-YOLOv5/blob/master/imgs/%E7%95%8C%E9%9D%A2.jpg)
 默认模型为*yolov5s.pt*，默认输入文件为电脑摄像头视频
 
 使用视频：
@@ -16,13 +16,10 @@
 
 摄像头检测画面：
 
-![无标题](D:\project\deeplearning\project\pytorch\objectdection\yolov5-master\笔记\无标题.jpg)
+![摄像头](https://github.com/Javacr/PyQt5-YOLOv5/blob/master/imgs/%E6%91%84%E5%83%8F%E5%A4%B4.jpg)
 
 本地视频检测画面：
-![20210927_141438_Trim 00_00_00-00_00_30~1](D:\FFOutput\20210927_141438_Trim 00_00_00-00_00_30~1.gif)
-
-图片检测画面：
-![无标题2](D:\project\deeplearning\project\pytorch\objectdection\yolov5-master\笔记\无标题2.jpg)
+![本地](https://github.com/Javacr/PyQt5-YOLOv5/blob/master/imgs/video.gif)
 
 
 ## 要做的事
