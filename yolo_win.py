@@ -27,16 +27,16 @@ class DetThread(QThread):
     send_img = pyqtSignal(np.ndarray)
     send_raw = pyqtSignal(np.ndarray)
     send_statistic = pyqtSignal(dict)
-    weights = './yolov5s.pt'
-    source = '0'
 
     def __init__(self):
         super(DetThread, self).__init__()
+        self.weights = './yolov5s.pt'
+        self.source = '0'
+        self.conf_thres = 0.25
 
     @torch.no_grad()
     def run(self,
             imgsz=640,  # inference size (pixels)
-            conf_thres=0.25,  # confidence threshold
             iou_thres=0.45,  # NMS IOU threshold
             max_det=1000,  # maximum detections per image
             device='',  # cuda device, i.e. 0 or 0,1,2,3 or cpu
@@ -97,7 +97,7 @@ class DetThread(QThread):
             pred = model(img, augment=augment)[0]
 
             # Apply NMS
-            pred = non_max_suppression(pred, conf_thres, iou_thres, classes, agnostic_nms, max_det=max_det)
+            pred = non_max_suppression(pred, self.conf_thres, iou_thres, classes, agnostic_nms, max_det=max_det)
             # Process detections
             for i, det in enumerate(pred):  # detections per image
                 im0 = im0s.copy()
@@ -136,6 +136,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.SelModel.triggered.connect(self.open_model)
         self.status_bar_init()
         self.cam_switch.triggered.connect(self.camera)
+        self.horizontalSlider.valueChanged.connect(lambda: self.conf_change(self.horizontalSlider))
+        self.spinBox.valueChanged.connect(lambda: self.conf_change(self.spinBox))
+
+    # 更改置信度
+    def conf_change(self, method):
+        if method == self.horizontalSlider:
+            self.spinBox.setValue(self.horizontalSlider.value())
+        if method == self.spinBox:
+            self.horizontalSlider.setValue(self.spinBox.value())
+        self.det_thread.conf_thres = self.horizontalSlider.value()/100
+        self.statusbar.showMessage("置信度已更改为："+str(self.det_thread.conf_thres))
 
     def status_bar_init(self):
         self.statusbar.showMessage('界面已准备')
