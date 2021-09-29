@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\newviewer9262.ui'
+# Form implementation generated from reading ui file '.\main_929.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -20,8 +20,39 @@ class Ui_MainWindow(object):
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setObjectName("gridLayout")
+        self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.statistic_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.statistic_2.setEnabled(False)
+        font = QtGui.QFont()
+        font.setFamily("Agency FB")
+        font.setPointSize(11)
+        font.setStyleStrategy(QtGui.QFont.PreferDefault)
+        self.statistic_2.setFont(font)
+        self.statistic_2.setAcceptDrops(False)
+        self.statistic_2.setAutoFillBackground(False)
+        self.statistic_2.setStyleSheet("background:transparent")
+        self.statistic_2.setObjectName("statistic_2")
+        self.horizontalLayout_4.addWidget(self.statistic_2)
+        self.spinBox = QtWidgets.QSpinBox(self.centralwidget)
+        self.spinBox.setMaximum(100)
+        self.spinBox.setProperty("value", 25)
+        self.spinBox.setObjectName("spinBox")
+        self.horizontalLayout_4.addWidget(self.spinBox)
+        self.horizontalSlider = QtWidgets.QSlider(self.centralwidget)
+        self.horizontalSlider.setMinimum(1)
+        self.horizontalSlider.setMaximum(100)
+        self.horizontalSlider.setProperty("value", 25)
+        self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
+        self.horizontalSlider.setTickPosition(QtWidgets.QSlider.TicksBelow)
+        self.horizontalSlider.setTickInterval(1)
+        self.horizontalSlider.setObjectName("horizontalSlider")
+        self.horizontalLayout_4.addWidget(self.horizontalSlider)
+        self.verticalLayout.addLayout(self.horizontalLayout_4)
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setTitle("")
         self.groupBox.setObjectName("groupBox")
@@ -111,6 +142,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setStretch(2, 1)
         self.verticalLayout_4.addLayout(self.horizontalLayout_3)
         self.verticalLayout.addWidget(self.groupBox)
+        self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -158,6 +190,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "YOLOV5检测界面"))
+        self.statistic_2.setText(_translate("MainWindow", "置信度"))
         self.label_2.setText(_translate("MainWindow", "输入数据"))
         self.label.setText(_translate("MainWindow", "检测结果"))
         self.statistic.setText(_translate("MainWindow", "统计"))
@@ -171,3 +204,4 @@ class Ui_MainWindow(object):
         self.cam_switch.setText(_translate("MainWindow", "摄像头开关"))
         self.cam_switch.setToolTip(_translate("MainWindow", "摄像头开关"))
         self.Exit.setText(_translate("MainWindow", "退出"))
+
